@@ -18,42 +18,64 @@ class calcComb():
         return self.__listStringa
 
     def setStringa(self):
-        
-        self.__stringa = str
-        self.stringalist = list(str)
-        
+        '''
+        modificare questo metodo in modo da verificare la coerenza delle variabili di
+        istanza presenti
+        '''
         return 0
 
     def charRipetuti(self):
-        
-        print (stella)
-        stella = { "s":0, "t":0, "e":0, "l":2, "a":0}
-        print ("stella: ",stella,'\n' )
-
         '''
         questo metodo deve creare un dictionary all'interno del quale la chiave deve essere
         il singolo carattere, il valore deve essere il numero di ripetizioni di quel carattere
         
         esempi di dictionary sono presenti nel file elementi_base/dictionary.py
         '''
+        word = list("giraffa")  # in ruzzle conterrà l'attributo di istanza che contiene la lista di caratteri
+
+carattere = {}
+
+nCaratteri = 0
+count = 0
+carattereRip = {} #conterrà solo i caratteri che si ripetono
+
+
+for i in word:
+
+    if (i in carattere):  # se trova il carattere nel dictionari incrementa il suo valore
+        carattere[str(i)] += 1
+    else:
+        carattere[str(i)] = 1 # se non lo trova lo aggiunge
+
+
+for i in carattere:
+    print(i)
+    if carattere[i] >= 2:  # se trova il carattere nel dictionari incrementa il suo valore
+        carattereRip[i] = carattere[i] # aggiunge il carattere al dictionary il carattere ripetuto
+
+
+
+print(carattereRip)
+print(carattere)
+#print(nCaratteri)
 
     def cerca(str):
-        
-        open words.italian.txt
-        if self.__stringa in words.italian.txt:
-            print("la parola esiste")
-        if self.__stringa not in word.italian.txt:
-            print("la parola non esiste")
-        
-        pass
+        '''
+        verificare se la STRINGA attributo di istanza è presente
+        nel file word.italian.txt
+        '''
 
-    'Rosaria = calcComb("Rosaria studia")'
-    'print(Rosaria.permutazioni(3))'
-    'print(Rosaria.stringa)'
-    'print(Rosaria.getStringa())'
-    'Rosaria.setStringa("stella")'
-    'print(Rosaria.stringa)'
-    'print(Rosaria.stringalist)'
+str= "pop"  # nel caso di ruzzle, str deve contenere l'attributo di istanza
+it = 'words.italian.txt' # è possibile aggiungere tante variabili quanti file di lingua si posseggono
+
+f = open(it, 'r')
+line = f.readline()
+
+for line in f:  # per ogni riga del file vengono eseguite le righe di codice che seguono
+#    print(str) 
+    if str == line[:-1]:  #bisogna eliminare l'ultimo carattere dalla parola contenuta nella riga del file
+        print("vero")
+        pass
 
     def fattoriale(n):
         '''
@@ -61,6 +83,16 @@ class calcComb():
         questo metodo può essere omessa se si utilizza un metodo built in delle
         librerie standard
         '''
+strin = self_stringa
+
+n = len(strin)
+
+nuova_n = n-1
+fatt = 0
+
+while nuova_n>=2:
+	fatt = n* nuova_n
+	nuova_n = nuova_n-1
 
     def coeffBinom(n, k):
         ''' 
@@ -75,6 +107,33 @@ class calcComb():
         a partire dalla stringa (caratterizzante l'oggetto) si restituisca la lista di tutti
         gli anagrammi possibili. E' presente uno script nel repo che esegue questo compito.
         '''
+        #generiamo una lista a partire da una stringa
+lettere = list("casa")
+
+#generiamo tutte le possibili permutazioni e le inseriamo in una lista
+permutazioni = list(permutations(lettere))
+
+#inizializiamo una variabile stringa di appoggio e una lista dove salvarle
+temp = ''
+anagrammi = []
+
+'''
+ il metodo permutations genera una lista di tuple, ognu tupla è una permutazione.
+ se scorriamo la lista attraverso un ciclo, possiamo scorrere gli elementi della tupla
+ per ricostruire la stringa
+'''
+for i in permutazioni:
+    for carattere in i:
+        # in temp concateno tutti gli elementi della tupla così da
+        # ottenere i singoli anagrammi della stringa iniziale
+        temp += carattere 
+
+    # aggiungo la parola ricostruita dalla tupla alla lista finale degli anagrammi
+    anagrammi.append(temp)
+    # "svuoto" la variabile temp così da ricostruire un secondo anagramma
+    temp = ''
+
+print(anagrammi)
         pass
     
     def confUtil(self):
@@ -85,6 +144,10 @@ class calcComb():
         si consiglia l'utilizzo di anagrammi e cerca, presenti nel repo e da trasformare in metodi.
         è possibile in una seconda versione la ricefrca di parole in altre lingue. 
         '''
+def confUtil(self):
+	open words.italian.txt
+	 if self.__stringa in words.italian.txt
+	  return self.__stringa
         pass
 
     # PERMUTAZIONI
@@ -93,7 +156,13 @@ class calcComb():
         '''
         restituire il numero di permutazioni SENZA ripetizione
         '''
-        return 0
+        stringa = 'gloss'
+        n = len(stringa)
+        nuova_n = n-1
+         while nuova_n=n=>2:
+          permut = n*n-1
+          nuova_n = nuova_n-1
+        return permut 
 
     def nPermutConRip(self):
         '''
